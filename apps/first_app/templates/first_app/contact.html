@@ -14,7 +14,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="{% static '/first_app/myStyle_contact.css' %}">
+    <link rel="stylesheet" href="{% static '/first_app/myStyle.css' %}">
+    <link rel="stylesheet" href="{% static '/first_app/contact.css' %}">
     <!--  /static/first_app/myStyle_contact.css -->
 
   </head>
@@ -25,14 +26,14 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <h1>
-            <a class="navbar-brand" href="#" alt="My seal">Hannuri Louis Kwon</a>
+            <a class="navbar-brand" href="#" alt="My seal">Louis Kwon</a>
           </h1>
         </div>
 
@@ -51,17 +52,25 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+
+    {% if messages %}
     <div class="container-fluid">
+      <ul id="messages" class="col-sm-offset-2">
+        {% for message in messages %}
+          <li>
+            {{ message }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif%}
+
+
+    <div class="container-fluid" id="contact_container">
       <form class="form-horizontal" action="/contact" method="POST">
       {% csrf_token %}
 
-        <div class="row">
-          <h4 class="col-sm-offset-2">Please use the form below if you like to contact me.</h4>
-        </div>
-
-        {{ form.as_p }}
-
-        <!-- <div class="form-group">
+        <div class="form-group">
           <label for="inputEmail" class="control-label col-sm-2">Email</label>
           <div class="col-sm-6 col-lg-4">
             <input type="email" class="form-control" id="inputEmail" name="email">
@@ -87,10 +96,10 @@
           <div class="col-sm-6 col-lg-4">
             <textarea class="form-control" rows="3" id="message" name="message"></textarea>
           </div>
-        </div> -->
+        </div>
 
         <div class="form-group">
-          <div class="col-lg-10 col-lg-offset-2">
+          <div class="col-lg-10 col-sm-offset-2">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>

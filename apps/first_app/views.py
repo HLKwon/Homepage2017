@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
-from .forms import ContactForm
 import re
 from django.core.mail import EmailMessage
 from django.template import Context
@@ -8,7 +7,6 @@ from django.template.loader import get_template
 
 
 
-# Create your views here.
 def index(request):
     return render(request, "first_app/index.html")
 
@@ -19,41 +17,56 @@ def projects(request):
     return render(request, "first_app/projects.html")
 
 def contact(request):
-    form_class = ContactForm
 
     if request.method == 'POST':
-        form = form_class(data=request.POST)
+        errors=[]
+        flag = False
 
-        if form.is_valid():
-            contact_name = request.POST.get('contact_name', '')
-            contact_email = request.POST.get('contact_email', '')
-            form_content = request.POST.get('content', '')
+        if not request.POST['email']:
+            errors.append("Email is empty")
+            flag = True
+        if not request.POST['fname']:
+            errors.append("First name is empty")
+            flag = True
+        if not request.POST['lname']:
+            errors.append("Last name is empty")
+            flag = True
+        if flag:
+            for err in errors:
+                messages.error(request, err)
+            return redirect("contact")
+
+        else:
+            messages.success(request, "Contact form was submitted!")
+
+            email = request.POST['email']
+            fname = request.POST['fname']
+            lname = request.POST['lname']
+            message = request.POST['message']
 
             # Email the profile with the
             # contact information
-            template = get_template('first_app/contact_template.txt')
+            template = get_template('first_app/second_contact_template.txt')
             context = Context({
-                'contact_name': contact_name,
-                'contact_email': contact_email,
-                'form_content': form_content,
+                'email': email,
+                'fname': fname,
+                'lname': lname,
+                'form_message': message
             })
             content = template.render(context)
 
-            email = EmailMessage(
+            emailToSend = EmailMessage(
                 "New contact form submission",
                 content,
-                contact_email,
-                # "Your website" +'',
+                email,
                 ['louis@nuri.codes'],
-                headers = {'Reply-To': contact_email }
+                headers = {'Reply-To': email }
             )
-            email.send()
+            emailToSend.send()
             return redirect('contact')
 
 
-    return render(request, 'first_app/contact.html', {'form': form_class})
-
-
+    return render(request, 'first_app/contact.html')
 
 
 

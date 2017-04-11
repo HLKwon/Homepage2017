@@ -1,0 +1,39 @@
+@media (max-width: 900px){
+  .navbar-header h1:before {
+      display: inline-block;
+      float: left;
+      content: "";
+      background: url(/static/first_app/seal.png) no-repeat left center;
+      background-size: 100%;
+      height: 55px;
+      width: 55px;
+      margin-right: 25px;
+      position: relative;
+      margin-left: 50px;
+  }
+}
+
+@media (max-width: 767px){
+  .navbar-header h1:before {
+      display: inline-block;
+      float: left;
+      content: "";
+      background: url(/static/first_app/seal.png) no-repeat left center;
+      background-size: 100%;
+      height: 55px;
+      width: 55px;
+      margin-right: 25px;
+      position: relative;
+      margin-left: 15px;
+  }
+}
+
+#messages{
+  margin-top: 30px;
+  list-style-type: none;
+}
+
+#messages li{
+  font-size: 20px;
+
+}
