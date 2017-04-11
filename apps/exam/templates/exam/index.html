@@ -4,7 +4,7 @@
   </head>
 
   <body>
-    <a href="/travels/logout">Logout</a>
+    <a href="logout">Logout</a>
 
     <h1>Hello, {{user.name}}!</h1>
 
@@ -28,12 +28,12 @@
         <tbody>
         {% for travel in travels %}
           <tr>
-            <td><a href="/travels/destination/{{travel.trips.id}}">{{travel.trips.destination}}</a></td>
+            <td><a href="destination/{{travel.trips.id}}">{{travel.trips.destination}}</a></td>
             <td>{{travel.trips.startdate|date:"M d Y"}}</td>
             <td>{{ travel.trips.enddate|date:"M d Y" }}</td>
             <td>{{travel.trips.description}}</td>
-            <td><a href="/travels/edit/{{travel.trips.id}}">Edit</a></td>
-            <td><a href="/travels/delete/{{travel.trips.id}}">Delete</a></td>
+            <td><a href="edit/{{travel.trips.id}}">Edit</a></td>
+            <td><a href="delete/{{travel.trips.id}}">Delete</a></td>
           </tr>
         {% endfor %}
       </tbody>
@@ -61,11 +61,11 @@
         {% for travel in otherusers %}
           <tr>
             <td>{{travel.travelers.name}}</td>
-            <td><a href="/travels/destination/{{travel.trips.id}}">{{travel.trips.destination}}</a></td>
+            <td><a href="destination/{{travel.trips.id}}">{{travel.trips.destination}}</a></td>
             <td>{{travel.trips.startdate|date:"M d Y"}}</td>
             <td>{{travel.trips.enddate|date:"M d Y"}}</td>
             <td>{{travel.trips.description}}</td>
-            <td><a href="/travels/join/{{travel.trips.id}}">Join</a></td>
+            <td><a href="join/{{travel.trips.id}}">Join</a></td>
           </tr>
         {% endfor %}
       </tbody>
@@ -74,7 +74,7 @@
     </div>
 
 
-  <a href="/travels/add">Add Travel Plan</a>
+  <a href="add">Add Travel Plan</a>
 
   </body>
 

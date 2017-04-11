@@ -18,11 +18,11 @@
 
     <h1>Add a Trip</h1>
 
-    <a href="/travels">Home</a>
-    <a href="/travels/logout">Logout</a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="logout">Logout</a>
 
 
-    <form class="" action="/travels/add/newtrip" method="POST">
+    <form class="" action="add/newtrip" method="POST">
 				{% csrf_token %}
         <label for='destination'>Destination:</label>
 				<input type='text' name='destination'><br>

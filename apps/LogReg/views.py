@@ -48,8 +48,8 @@ def login(request):
     if results[0]:
         request.session['logged_in_user'] = results[1].id
 
-        return redirect("/travels")
+        return redirect("/project/project1/travels")
 
     else:
         messages.error(request, results[1])
-        return redirect("/main")
+        return redirect("/project/project1")

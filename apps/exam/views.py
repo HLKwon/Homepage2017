@@ -22,7 +22,7 @@ def index(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect("/main")
+    return redirect("/project/project1")
 
 
 def add(request):
@@ -31,26 +31,6 @@ def add(request):
 
 
 def newtrip(request):
-
-    # postData = {
-    #     "destination": request.POST['destination'],
-    #     "description": request.POST['description'],
-    #     "startdate": request.POST['startdate'],
-    #     "enddate": request.POST['enddate'],
-    #     "user_id": request.session['logged_in_user'],
-    # }
-    #
-    # user = User.objects.get(id=request.session['logged_in_user'])
-    # result = Trip.objects.tripValidate(postData)
-    #
-    # if result[0]:
-    #     for error in result[1]
-    #         messages.error(request, error)
-    #
-    # else:
-    #     TravelPlan.objects.create(trips=result[1], travelers=user)
-    #
-
 
     errors=[]
     flag = False
@@ -66,7 +46,7 @@ def newtrip(request):
     if flag:
         for err in errors:
             messages.error(request, err)
-        return redirect("/travels/add")
+        return redirect("add")
 
     startdate = datetime.strptime(request.POST['startdate'], "%Y-%m-%d")
     enddate = datetime.strptime(request.POST['enddate'],"%Y-%m-%d")
@@ -74,10 +54,10 @@ def newtrip(request):
 
     if datetime.now() > startdate:
         messages.error(request, "Start date should be today or after today's date.")
-        return redirect("/travels/add")
+        return redirect("add")
     if startdate > enddate:
         messages.error(request, "Start date must be before End date.")
-        return redirect("/travels/add")
+        return redirect("add")
 
     trip = Trip.objects.create(
         destination=request.POST['destination'],
@@ -90,7 +70,7 @@ def newtrip(request):
     TravelPlan.objects.create(trips=trip, travelers=user)
 
 
-    return redirect("/travels")
+    return redirect("home")
 
 
 def join(request, id):
@@ -99,7 +79,7 @@ def join(request, id):
 
     TravelPlan.objects.create(trips=trip, travelers=user)
 
-    return redirect("/travels")
+    return redirect("home")
 
 
 def destination(request, id):
@@ -133,7 +113,7 @@ def edited(request,id):
     editedTrip.enddate = datetime.strptime(request.POST['enddate'], "%Y-%m-%d")
     editedTrip.save()
 
-    return redirect("/travels")
+    return redirect("home")
 
 
 def delete(request, id):
@@ -142,4 +122,4 @@ def delete(request, id):
     entry_to_be_deleted = TravelPlan.objects.filter(trips=trip).filter(travelers=user)
     entry_to_be_deleted.delete()
 
-    return redirect("/travels")
+    return redirect("home")

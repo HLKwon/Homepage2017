@@ -198,6 +198,22 @@
   margin-top: 20px;
 }
 
+#project_wrapper{
+  margin-top: 40px;
+  width: 80%;
+}
+
+#project_wrapper li{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.project_link{
+  font-size: 20px;
+
+}
+
 #footer{
   background-color: #fcfcfc;
 }

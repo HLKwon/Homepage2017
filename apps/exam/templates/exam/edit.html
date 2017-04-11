@@ -5,7 +5,7 @@
 
   <body>
 
-    <form class="" action="/travels/edited/{{trip.id}}" method="POST">
+    <form class="" action="/project/project1/travels/edited/{{trip.id}}" method="POST">
 				{% csrf_token %}
         <label for='destination'>Destination:</label>
 				<input type='text' name='destination' value='{{trip.destination}}'><br>
