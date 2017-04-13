@@ -1,4 +1,4 @@
-reated by https://www.gitignore.io/api/django
+# Created by https://www.gitignore.io/api/django
 
 ### Django ###
 *.log
@@ -8,5 +8,7 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
+
+djangoEnv/
 
 # End of https://www.gitignore.io/api/django
