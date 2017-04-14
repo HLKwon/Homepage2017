@@ -59,7 +59,7 @@ def contact(request):
                 "New contact form submission",
                 content,
                 email,
-                ['hannuri.kwon@gmail.com'],
+                ['louis@nuri.codes'],
                 headers = {'Reply-To': email }
             )
             emailToSend.send()
