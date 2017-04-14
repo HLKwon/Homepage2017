@@ -128,8 +128,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 # Email setup for Contact Form
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'testing@example.com'
+DEFAULT_FROM_EMAIL = 'itDoes@not.matter'
+EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
+EMAIL_USE_TLS = True
+EMAIL_PORT = 465
