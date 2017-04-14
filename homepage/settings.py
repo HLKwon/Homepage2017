@@ -23,12 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#3kkcgkn-ln&#!^n&4x0318$^*521mx5*^v5)#mlag0jof0yv-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [
-	'54.165.117.58',
-	'.nuri.codes',
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -124,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
 
 # Email setup for Contact Form
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
