@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#3kkcgkn-ln&#!^n&4x0318$^*521mx5*^v5)#mlag0jof0yv-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-	'54.165.117.58',
-	'.nuri.codes',
+#	'54.165.117.58',
+#	'.nuri.codes',
 ]
 
 
@@ -128,9 +128,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 # Email setup for Contact Form
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'itDoes@not.matter'
+#DEFAULT_FROM_EMAIL = 'itDoes@not.matter'
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
-EMAIL_PORT = 465
+EMAIL_PORT = 587
