@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#3kkcgkn-ln&#!^n&4x0318$^*521mx5*^v5)#mlag0jof0yv-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-#	'54.165.117.58',
-#	'.nuri.codes',
+	'54.165.117.58',
+	'.nuri.codes',
 ]
 
 
@@ -134,3 +134,8 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
