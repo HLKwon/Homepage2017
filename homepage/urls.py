@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^', include('apps.first_app.urls')),
     url(r'^project/project1/', include('apps.LogReg.urls')),
     url(r'^project/project1/travels/', include('apps.exam.urls')),
+    url(r'^project2/', include('apps.beltexam2.urls')),
+    url(r'^project3/', include('apps.beltexam3.urls')),
 ]

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Poke</title>
+  </head>
+
+  <body>
+
+    <h1>Hello, {{user.name}}!</h1>
+
+    <p> {{test}} people poked you!</p>
+
+
+    <a href="/project2/logout">Logout</a>
+
+
+    <div id='poked_you'>
+      {% for poker in poker_history %}
+      <p> {{poker.name}} poked you {{poker.counting}} times. </p>
+      {% endfor %}
+    </div>
+
+    <hr />
+
+
+
+    <div id='want_to_poke'>
+      <h3>People you may want to poke:</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Alias</td>
+            <td>Email Address</td>
+            <td>Poke History</td>
+            <td>Action</td>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% for other in others %}
+          <tr>
+            <td>{{other.name}}</td>
+            <td>{{other.alias}}</td>
+            <td>{{other.email}}</td>
+            <td>{{other.poked_history}}</td>
+            <td><a href='/project2/poking/{{other.id}}'>POKE!</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+
+      </table>
+
+    </div>
+
+
+  </body>
+
+</html>
