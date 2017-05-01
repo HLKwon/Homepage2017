@@ -7,13 +7,14 @@ from django.db import connection
 # print connection.queries
 import re
 import bcrypt
-
+import logging
+logger = logging.getLogger(__name__)
 
 from .models import User, Poke
 # from .models import User
 
 def index(request):
-
+    logger.debug('Inside Beltexam2 views index')
     return render(request, "beltexam2/index.html")
 
 
