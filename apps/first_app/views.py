@@ -4,10 +4,12 @@ import re
 from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template
-
+import logging
+logger = logging.getLogger(__name__)
 
 
 def index(request):
+    logger.debug('Inside first_app views index')
     return render(request, "first_app/index.html")
 
 def about(request):
