@@ -14,8 +14,7 @@ from .models import User, Poke
 # from .models import User
 
 def index(request):
-    logger.debug('Inside Beltexam2 views index')
-    return render(request, "beltexam2/index.html")
+    return render(request, "beltExam2/index.html")
 
 
 def register(request):
